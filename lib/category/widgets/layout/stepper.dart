@@ -82,12 +82,12 @@ class _StepperWidgetState extends State<StepperWidget> {
             onStepTapped: (index) {
               setState(() => _currentStep = index);
             },
-            controlsBuilder: (_, ControlsDetails details) {
+            controlsBuilder: (_, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
               return Row(
                 children: <Widget>[
                   RaisedButton(
                     color: Colors.red,
-                    onPressed: details.onStepContinue,
+                    onPressed: onStepContinue,
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.arrow_back, color: Colors.white),
@@ -101,7 +101,7 @@ class _StepperWidgetState extends State<StepperWidget> {
                   SizedBox(width: 10),
                   RaisedButton(
                     color: Colors.blue,
-                    onPressed: details.onStepContinue,
+                    onPressed: onStepContinue,
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.check, color: Colors.white),
